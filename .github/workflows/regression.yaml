@@ -5,9 +5,7 @@
 name: Tests
 
 on:
-  pull_request:
-    branches: [main, dev]
-    types: [opened, synchronize, reopened, edited]
+  workflow_dispatch:
 
 # An edit must not cancel a running suite: the replacement run would skip it and still report green.
 concurrency:
