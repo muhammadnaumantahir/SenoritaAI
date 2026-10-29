@@ -1,13 +1,8 @@
 name: Create and publish Docker images with specific build args
 
 on:
+  # Image publishing is manual-only to avoid expensive automatic builds.
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - dev
-    tags:
-      - v*
 
 concurrency:
   group: docker-${{ github.ref }}
