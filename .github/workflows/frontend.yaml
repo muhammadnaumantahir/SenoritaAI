@@ -1,16 +1,11 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Frontend CI — Lint, format check, build, and unit tests
-# Runs on pushes and PRs to main/dev, skipping backend-only changes
+# Run manually from Actions to preserve the GitHub Actions usage allowance.
 # ─────────────────────────────────────────────────────────────────────────────
 name: Frontend Build
 
 on:
-  push:
-    branches: [main, dev]
-    paths-ignore: ['backend/**', 'pyproject.toml', 'uv.lock']
-  pull_request:
-    branches: [main, dev]
-    paths-ignore: ['backend/**', 'pyproject.toml', 'uv.lock']
+  workflow_dispatch:
 
 concurrency:
   group: frontend-${{ github.ref }}
